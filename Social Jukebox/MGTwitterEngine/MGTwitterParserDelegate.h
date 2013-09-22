@@ -12,12 +12,12 @@
 
 @protocol MGTwitterParserDelegate
 
-- (void)parsingSucceededForRequest:(NSString *)identifier 
-                    ofResponseType:(MGTwitterResponseType)responseType 
+- (void)parsingSucceededForRequest:(NSString *)identifier
+                    ofResponseType:(MGTwitterResponseType)responseType
                  withParsedObjects:(NSArray *)parsedObjects;
 
-- (void)parsingFailedForRequest:(NSString *)requestIdentifier 
-                 ofResponseType:(MGTwitterResponseType)responseType 
+- (void)parsingFailedForRequest:(NSString *)requestIdentifier
+                 ofResponseType:(MGTwitterResponseType)responseType
                       withError:(NSError *)error;
 
 @end

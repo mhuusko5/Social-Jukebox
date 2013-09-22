@@ -3,7 +3,7 @@
 
 @interface ClearBorderlessPanel : NSPanel {
 @private
-    NSPoint initialLocation;
+	NSPoint initialLocation;
 }
 
 @property (assign) NSPoint initialLocation;

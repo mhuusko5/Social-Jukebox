@@ -2,9 +2,6 @@
 #import <Foundation/Foundation.h>
 #import <Carbon/Carbon.h>
 
-@interface SongDragDropView : NSView{
-
+@interface SongDragDropView : NSView {
 }
 @end
-
-

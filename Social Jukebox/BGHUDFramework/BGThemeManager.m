@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import "BGThemeManager.h"
@@ -41,63 +41,57 @@ static BGThemeManager *sharedThemeManager = nil;
 
 + (BGThemeManager *)keyedManager;
 {
-    if (sharedThemeManager == nil) {
-        sharedThemeManager = [[super allocWithZone:NULL] init];
+	if (sharedThemeManager == nil) {
+		sharedThemeManager = [[super allocWithZone:NULL] init];
 		[sharedThemeManager initDefaultThemes];
-    }
-    return sharedThemeManager;
+	}
+	return sharedThemeManager;
 }
 
 + (id)allocWithZone:(NSZone *)zone;
 {
-    return [[self keyedManager] retain];
+	return [[self keyedManager] retain];
 }
 
--(void)initDefaultThemes {
-	
+- (void)initDefaultThemes {
 	//Init our Dictionary for 2 defaults
-	themes = [[NSMutableDictionary alloc] initWithCapacity: 2];
-	
+	themes = [[NSMutableDictionary alloc] initWithCapacity:2];
+    
 	//Add the default Flat and Gradient themes
-	[themes setObject: [[[BGTheme alloc] init] autorelease] forKey: @"flatTheme"];
-	[themes setObject: [[[BGGradientTheme alloc] init] autorelease] forKey: @"gradientTheme"];
+	[themes setObject:[[[BGTheme alloc] init] autorelease] forKey:@"flatTheme"];
+	[themes setObject:[[[BGGradientTheme alloc] init] autorelease] forKey:@"gradientTheme"];
 }
 
 - (BGTheme *)themeForKey:(NSString *)key {
-
 	//Make sure the key exists before we try to
 	//return it
-	if([themes objectForKey: key]) {
-
-		return [themes objectForKey: key];
-	} else {
-
-		//Return the default gradient key
-		return [themes objectForKey: @"gradientTheme"];
+	if ([themes objectForKey:key]) {
+		return [themes objectForKey:key];
 	}
-	
-	
+	else {
+		//Return the default gradient key
+		return [themes objectForKey:@"gradientTheme"];
+	}
 }
 
 - (void)setTheme:(BGTheme *)theme forKey:(NSString *)key {
-	
-	[themes setObject: theme forKey: key];
+	[themes setObject:theme forKey:key];
 }
 
 - (id)copyWithZone:(NSZone *)zone; {
-    return self;
+	return self;
 }
 
 - (id)retain; {
-    return self;
+	return self;
 }
 
 - (NSUInteger)retainCount; {
-    return NSUIntegerMax;  //denotes an object that cannot be released
+	return NSUIntegerMax;  //denotes an object that cannot be released
 }
 
 - (id)autorelease; {
-    return self;
+	return self;
 }
 
 @end

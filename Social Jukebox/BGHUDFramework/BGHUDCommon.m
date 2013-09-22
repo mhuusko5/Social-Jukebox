@@ -10,14 +10,13 @@
 
 @implementation BGHUDCommon
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
+- (id)init {
+	self = [super init];
+	if (self) {
+		// Initialization code here.
+	}
     
-    return self;
+	return self;
 }
 
 @end

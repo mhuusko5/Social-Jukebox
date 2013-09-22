@@ -10,82 +10,78 @@
 
 @implementation OAToken (OAToken_KeychainExtensions)
 
-- (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider 
-{
-    [super init];
-    SecKeychainItemRef item;
+- (id)initWithKeychainUsingAppName:(NSString *)name serviceProviderName:(NSString *)provider {
+	[super init];
+	SecKeychainItemRef item;
 	NSString *serviceName = [NSString stringWithFormat:@"%@::OAuth::%@", name, provider];
 	OSStatus status = SecKeychainFindGenericPassword(NULL,
-													 (UInt32)strlen([serviceName UTF8String]),
-													 [serviceName UTF8String],
-													 0,
-													 NULL,
-													 NULL,
-													 NULL,
-													 &item);
-    if (status != noErr) {
-        return nil;
-    }
+	                                                 (UInt32)strlen([serviceName UTF8String]),
+	                                                 [serviceName UTF8String],
+	                                                 0,
+	                                                 NULL,
+	                                                 NULL,
+	                                                 NULL,
+	                                                 &item);
+	if (status != noErr) {
+		return nil;
+	}
     
-    // from Advanced Mac OS X Programming, ch. 16
-    UInt32 length;
-    char *password;
-    SecKeychainAttribute attributes[8];
-    SecKeychainAttributeList list;
-	
-    attributes[0].tag = kSecAccountItemAttr;
-    attributes[1].tag = kSecDescriptionItemAttr;
-    attributes[2].tag = kSecLabelItemAttr;
-    attributes[3].tag = kSecModDateItemAttr;
+	// from Advanced Mac OS X Programming, ch. 16
+	UInt32 length;
+	char *password;
+	SecKeychainAttribute attributes[8];
+	SecKeychainAttributeList list;
     
-    list.count = 4;
-    list.attr = attributes;
+	attributes[0].tag = kSecAccountItemAttr;
+	attributes[1].tag = kSecDescriptionItemAttr;
+	attributes[2].tag = kSecLabelItemAttr;
+	attributes[3].tag = kSecModDateItemAttr;
     
-    status = SecKeychainItemCopyContent(item, NULL, &list, &length, (void **)&password);
+	list.count = 4;
+	list.attr = attributes;
     
-    if (status == noErr) {
-        self.key = nil; //[NSString stringWithCString:list.attr[0].data length:list.attr[0].length];
-        if (password != NULL) {
-            char passwordBuffer[1024];
+	status = SecKeychainItemCopyContent(item, NULL, &list, &length, (void **)&password);
+    
+	if (status == noErr) {
+		self.key = nil; //[NSString stringWithCString:list.attr[0].data length:list.attr[0].length];
+		if (password != NULL) {
+			char passwordBuffer[1024];
             
-            if (length > 1023) {
-                length = 1023;
-            }
-            strncpy(passwordBuffer, password, length);
+			if (length > 1023) {
+				length = 1023;
+			}
+			strncpy(passwordBuffer, password, length);
             
-            passwordBuffer[length] = '\0';
+			passwordBuffer[length] = '\0';
 			self.secret = nil; //[NSString stringWithCString:passwordBuffer];
-        }
+		}
         
-        SecKeychainItemFreeContent(&list, password);
-        
-    } else {
+		SecKeychainItemFreeContent(&list, password);
+	}
+	else {
 		// TODO find out why this always works in i386 and always fails on ppc
-        return nil;
-    }
+		return nil;
+	}
     
-    NSMakeCollectable(item);
+	NSMakeCollectable(item);
     
-    return self;
+	return self;
 }
 
-
-- (int)storeInDefaultKeychainWithAppName:(NSString *)name serviceProviderName:(NSString *)provider 
-{
-    return [self storeInKeychain:NULL appName:name serviceProviderName:provider];
+- (int)storeInDefaultKeychainWithAppName:(NSString *)name serviceProviderName:(NSString *)provider {
+	return [self storeInKeychain:NULL appName:name serviceProviderName:provider];
 }
 
-- (int)storeInKeychain:(SecKeychainRef)keychain appName:(NSString *)name serviceProviderName:(NSString *)provider 
-{
-	OSStatus status = SecKeychainAddGenericPassword(keychain,                                     
-                                                    (UInt32)([name length] + [provider length] + 9), 
-                                                    [[NSString stringWithFormat:@"%@::OAuth::%@", name, provider] UTF8String],
-                                                    (UInt32)[self.key length],                        
-                                                    [self.key UTF8String],
-                                                    (UInt32)[self.secret length],
-                                                    [self.secret UTF8String],
-                                                    NULL
-                                                    );
+- (int)storeInKeychain:(SecKeychainRef)keychain appName:(NSString *)name serviceProviderName:(NSString *)provider {
+	OSStatus status = SecKeychainAddGenericPassword(keychain,
+	                                                (UInt32)([name length] + [provider length] + 9),
+	                                                [[NSString stringWithFormat:@"%@::OAuth::%@", name, provider] UTF8String],
+	                                                (UInt32)[self.key length],
+	                                                [self.key UTF8String],
+	                                                (UInt32)[self.secret length],
+	                                                [self.secret UTF8String],
+	                                                NULL
+	                                                );
 	return status;
 }
 

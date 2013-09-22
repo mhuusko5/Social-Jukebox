@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import "BGHUDTokenAttachmentCell.h"
@@ -42,78 +42,71 @@
 @synthesize tokenBorder;
 
 - (id)tokenForegroundColor {
-
-	if(![self isHighlighted]) {
-		
+	if (![self isHighlighted]) {
 		return [self tokenFillHighlight];
-	} else {
-		
+	}
+	else {
 		return [self tokenFillNormal];
 	}
 }
 
 - (id)tokenBackgroundColor {
-	
 	return [self tokenBorder];
 }
 
 - (void)drawWithFrame:(NSRect)fp8 inView:(id)fp24 {
-	
-	NSMutableAttributedString *newTitle = [[NSMutableAttributedString alloc] initWithAttributedString: [self attributedStringValue]];
+	NSMutableAttributedString *newTitle = [[NSMutableAttributedString alloc] initWithAttributedString:[self attributedStringValue]];
 	NSRect textRect = fp8;
-	
-	if(![self isHighlighted]) {
-		
+    
+	if (![self isHighlighted]) {
 		[newTitle beginEditing];
-		[newTitle addAttribute: NSForegroundColorAttributeName
-						 value: [self textColor]
-						 range: NSMakeRange(0, [newTitle length])];
+		[newTitle addAttribute:NSForegroundColorAttributeName
+		                 value:[self textColor]
+		                 range:NSMakeRange(0, [newTitle length])];
 		[newTitle endEditing];
-		
-		[self setAttributedStringValue: newTitle];
+        
+		[self setAttributedStringValue:newTitle];
 	}
-	
+    
 	switch ([self controlSize]) {
-		
 		case NSSmallControlSize:
-			
+            
 			fp8.size.height = 14;
-			
+            
 			[newTitle beginEditing];
-			[newTitle addAttribute: NSFontAttributeName
-							 value: [NSFont controlContentFontOfSize: 10.0f]
-							 range: NSMakeRange(0, [newTitle length])];
+			[newTitle addAttribute:NSFontAttributeName
+			                 value:[NSFont controlContentFontOfSize:10.0f]
+			                 range:NSMakeRange(0, [newTitle length])];
 			[newTitle endEditing];
-			
+            
 			textRect.origin.y -= 2;
-			
+            
 			break;
-			
+            
 		case NSMiniControlSize:
-
+            
 			fp8.size.height = 12;
-			
+            
 			[newTitle beginEditing];
-			[newTitle addAttribute: NSFontAttributeName
-							 value: [NSFont controlContentFontOfSize: 8.0f]
-							 range: NSMakeRange(0, [newTitle length])];
+			[newTitle addAttribute:NSFontAttributeName
+			                 value:[NSFont controlContentFontOfSize:8.0f]
+			                 range:NSMakeRange(0, [newTitle length])];
 			[newTitle endEditing];
-			
+            
 			textRect.origin.y -= 3;
-			
+            
 			break;
 	}
-	
-	[super drawTokenWithFrame: fp8 inView: fp24];
-	
-	if([self controlSize] == NSRegularControlSize) {
-		
-		[super drawInteriorWithFrame: fp8 inView: fp24];
-	} else {
-		
-		[newTitle drawInRect: textRect];
+    
+	[super drawTokenWithFrame:fp8 inView:fp24];
+    
+	if ([self controlSize] == NSRegularControlSize) {
+		[super drawInteriorWithFrame:fp8 inView:fp24];
 	}
-	
+	else {
+		[newTitle drawInRect:textRect];
+	}
+    
 	[newTitle release];
 }
 

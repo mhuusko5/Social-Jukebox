@@ -14,28 +14,24 @@
 @synthesize themeKey;
 
 - (id)initWithThemeKey:(NSString *)key {
-	
 	self = [super init];
-	
-	if(self) {
-		
+    
+	if (self) {
 		self.themeKey = key;
 	}
-	
+    
 	return self;
 }
 
--(void)drawRect:(NSRect)rect {
-	
+- (void)drawRect:(NSRect)rect {
 	//Draw base layer
-	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] tableHeaderCellBorderColor] set];
+	[[[[BGThemeManager keyedManager] themeForKey:self.themeKey] tableHeaderCellBorderColor] set];
 	NSRectFill([self bounds]);
-	
-	[[[[BGThemeManager keyedManager] themeForKey: self.themeKey] tableHeaderCellNormalFill] drawInRect: NSInsetRect([self bounds], 1, 1) angle: 270];
+    
+	[[[[BGThemeManager keyedManager] themeForKey:self.themeKey] tableHeaderCellNormalFill] drawInRect:NSInsetRect([self bounds], 1, 1) angle:270];
 }
 
--(void)dealloc {
-	
+- (void)dealloc {
 	[themeKey release];
 	[super dealloc];
 }

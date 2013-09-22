@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import <Cocoa/Cocoa.h>
@@ -44,11 +44,11 @@
 
 @property (retain) NSString *themeKey;
 
--(void)drawCheckInFrame:(NSRect)frame isRadio:(BOOL)radio;
--(void)drawTexturedRoundedButtonInFrame:(NSRect)frame;
--(void)drawRoundRectButtonInFrame:(NSRect)frame;
--(void)drawSmallSquareButtonInFrame:(NSRect)frame;
--(void)drawRoundedButtonInFrame:(NSRect)frame;
--(void)drawRecessedButtonInFrame:(NSRect)frame;
+- (void)drawCheckInFrame:(NSRect)frame isRadio:(BOOL)radio;
+- (void)drawTexturedRoundedButtonInFrame:(NSRect)frame;
+- (void)drawRoundRectButtonInFrame:(NSRect)frame;
+- (void)drawSmallSquareButtonInFrame:(NSRect)frame;
+- (void)drawRoundedButtonInFrame:(NSRect)frame;
+- (void)drawRecessedButtonInFrame:(NSRect)frame;
 
 @end

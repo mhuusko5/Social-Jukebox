@@ -1,14 +1,13 @@
 #import "NSString+contains.h"
 
-@implementation NSString ( containsCategory )
+@implementation NSString (containsCategory)
 
-- (BOOL) containsString: (NSString*) substring
-{    
-    NSRange range = [self rangeOfString : substring];
+- (BOOL)containsString:(NSString *)substring {
+	NSRange range = [self rangeOfString:substring];
     
-    BOOL found = ( range.location != NSNotFound );
+	BOOL found = (range.location != NSNotFound);
     
-    return found;
+	return found;
 }
 
 @end

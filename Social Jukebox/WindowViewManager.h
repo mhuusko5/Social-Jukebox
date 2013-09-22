@@ -3,7 +3,7 @@
 
 @interface WindowViewManager : NSObject {
 @private
-    BOOL windowFading;
+	BOOL windowFading;
 }
 
 - (void)toggleBetweenSubview:(NSView *)subview1 andSubview:(NSView *)subview2 ofSuperview:(NSView *)superview;

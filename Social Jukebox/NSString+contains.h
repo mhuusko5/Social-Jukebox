@@ -2,6 +2,6 @@
 
 @interface NSString (containsCategory)
 
-- (BOOL) containsString: (NSString*) substring;
+- (BOOL)containsString:(NSString *)substring;
 
 @end

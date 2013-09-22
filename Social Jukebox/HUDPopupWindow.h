@@ -3,7 +3,6 @@
 
 @interface HUDPopupWindow : NSPanel {
 @private
-    
 }
 
 @end

@@ -8,14 +8,14 @@
 
 @interface NSTokenAttachmentCell : NSTextAttachmentCell
 {
-    id _representedObject;
-    id _textColor;
-    id _reserved;
-    struct {
-        unsigned int _selected:1;
-        unsigned int _edgeStyle:2;
-        unsigned int _reserved:29;
-    } _tacFlags;
+	id _representedObject;
+	id _textColor;
+	id _reserved;
+	struct {
+		unsigned int _selected : 1;
+		unsigned int _edgeStyle : 2;
+		unsigned int _reserved : 29;
+	} _tacFlags;
 }
 
 + (void)initialize;
@@ -49,4 +49,3 @@
 - (BOOL)trackMouse:(id)fp8 inRect:(NSRect)fp12 ofView:(id)fp28 atCharacterIndex:(unsigned int)fp32 untilMouseUp:(BOOL)fp36;
 
 @end
-

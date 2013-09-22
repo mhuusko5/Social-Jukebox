@@ -12,16 +12,16 @@
 #import "MGTwitterParserDelegate.h"
 
 @interface MGTwitterEngine : NSObject <MGTwitterParserDelegate> {
-    __weak NSObject <MGTwitterEngineDelegate> *_delegate;
-    NSString *_username;
-    NSString *_password;
-    NSMutableDictionary *_connections;   // MGTwitterHTTPURLConnection objects
-    NSString *_clientName;
-    NSString *_clientVersion;
-    NSString *_clientURL;
-    NSString *_clientSourceToken;
+	__weak NSObject <MGTwitterEngineDelegate> *_delegate;
+	NSString *_username;
+	NSString *_password;
+	NSMutableDictionary *_connections;   // MGTwitterHTTPURLConnection objects
+	NSString *_clientName;
+	NSString *_clientVersion;
+	NSString *_clientURL;
+	NSString *_clientSourceToken;
 	NSString *_APIDomain;
-    BOOL _secureConnection;
+	BOOL _secureConnection;
 	BOOL _clearsCookies;
 }
 
@@ -70,7 +70,7 @@
 - (NSString *)endUserSession;
 - (NSString *)enableUpdatesFor:(NSString *)username;          // i.e. follow
 - (NSString *)disableUpdatesFor:(NSString *)username;         // i.e. no longer follow
-- (NSString *)isUser:(NSString *)username1 receivingUpdatesFor:(NSString *)username2;	// i.e. test if username1 follows username2 (not the reverse)
+- (NSString *)isUser:(NSString *)username1 receivingUpdatesFor:(NSString *)username2;   // i.e. test if username1 follows username2 (not the reverse)
 - (NSString *)enableNotificationsFor:(NSString *)username;
 - (NSString *)disableNotificationsFor:(NSString *)username;
 - (NSString *)getRateLimitStatus;
@@ -83,12 +83,12 @@
 
 // Retrieving updates
 - (NSString *)getFollowedTimelineFor:(NSString *)username since:(NSDate *)date startingAtPage:(int)pageNum;
-- (NSString *)getFollowedTimelineFor:(NSString *)username since:(NSDate *)date startingAtPage:(int)pageNum count:(int)count;		// max 200
-- (NSString *)getFollowedTimelineFor:(NSString *)username sinceID:(int)updateID startingAtPage:(int)pageNum count:(int)count;		// max 200
-- (NSString *)getUserTimelineFor:(NSString *)username since:(NSDate *)date count:(int)numUpdates;									// max 200
-- (NSString *)getUserTimelineFor:(NSString *)username since:(NSDate *)date startingAtPage:(int)pageNum count:(int)numUpdates;		// max 200
-- (NSString *)getUserTimelineFor:(NSString *)username sinceID:(int)updateID startingAtPage:(int)pageNum count:(int)numUpdates;		// max 200
-- (NSString *)getUserUpdatesArchiveStartingAtPage:(int)pageNum;																		// 80 per page
+- (NSString *)getFollowedTimelineFor:(NSString *)username since:(NSDate *)date startingAtPage:(int)pageNum count:(int)count;        // max 200
+- (NSString *)getFollowedTimelineFor:(NSString *)username sinceID:(int)updateID startingAtPage:(int)pageNum count:(int)count;       // max 200
+- (NSString *)getUserTimelineFor:(NSString *)username since:(NSDate *)date count:(int)numUpdates;                                   // max 200
+- (NSString *)getUserTimelineFor:(NSString *)username since:(NSDate *)date startingAtPage:(int)pageNum count:(int)numUpdates;       // max 200
+- (NSString *)getUserTimelineFor:(NSString *)username sinceID:(int)updateID startingAtPage:(int)pageNum count:(int)numUpdates;      // max 200
+- (NSString *)getUserUpdatesArchiveStartingAtPage:(int)pageNum;                                                                     // 80 per page
 - (NSString *)getPublicTimelineSinceID:(int)updateID;
 - (NSString *)getRepliesStartingAtPage:(int)pageNum;                                          // sent TO this user
 - (NSString *)getFavoriteUpdatesFor:(NSString *)username startingAtPage:(int)pageNum;

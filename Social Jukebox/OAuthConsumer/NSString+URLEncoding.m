@@ -28,25 +28,23 @@
 
 @implementation NSString (OAURLEncodingAdditions)
 
-- (NSString *)URLEncodedString 
-{
-    NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                           (CFStringRef)self,
-                                                                           NULL,
-																		   CFSTR("!*'();:@&=+$,/?%#[]"),
-                                                                           kCFStringEncodingUTF8);
-    [result autorelease];
+- (NSString *)URLEncodedString {
+	NSString *result = (NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+	                                                                       (CFStringRef)self,
+	                                                                       NULL,
+	                                                                       CFSTR("!*'();:@&=+$,/?%#[]"),
+	                                                                       kCFStringEncodingUTF8);
+	[result autorelease];
 	return result;
 }
 
-- (NSString*)URLDecodedString
-{
+- (NSString *)URLDecodedString {
 	NSString *result = (NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-																						   (CFStringRef)self,
-																						   CFSTR(""),
-																						   kCFStringEncodingUTF8);
-    [result autorelease];
-	return result;	
+	                                                                                       (CFStringRef)self,
+	                                                                                       CFSTR(""),
+	                                                                                       kCFStringEncodingUTF8);
+	[result autorelease];
+	return result;
 }
 
 @end

@@ -15,77 +15,77 @@
 @interface AppController : NSObject {
 @private
     
-    IBOutlet NSArrayController *songQueueController;
-    NSMutableArray *songQueue;
+	IBOutlet NSArrayController *songQueueController;
+	NSMutableArray *songQueue;
     
-    NSMutableArray *searchResults;
+	NSMutableArray *searchResults;
     
-    NSImage *noArtwork, *repeatOne, *repeat, *noRepeat, *blackBar, *facebookpic;
+	NSImage *noArtwork, *repeatOne, *repeat, *noRepeat, *blackBar, *facebookpic;
     
-    xAuthTwitterEngine *twitterEngine;
-    BOOL twitterLoggedIn;
+	xAuthTwitterEngine *twitterEngine;
+	BOOL twitterLoggedIn;
     
-    PhFacebook *facebookEngine;
-    BOOL facebookLoggedIn;
+	PhFacebook *facebookEngine;
+	BOOL facebookLoggedIn;
     
-    SNRLastFMEngine *lastFmEngine;
-    BOOL lastFmLoggedIn;
+	SNRLastFMEngine *lastFmEngine;
+	BOOL lastFmLoggedIn;
     
-    iTunesApplication *iTunes;
-    iTunesPlaylist *musicLibrary;
-    NSDistributedNotificationCenter *iTunesNotificationManager;
+	iTunesApplication *iTunes;
+	iTunesPlaylist *musicLibrary;
+	NSDistributedNotificationCenter *iTunesNotificationManager;
     
-    NSTimer *statsUpdateTimer;
+	NSTimer *statsUpdateTimer;
     
-    WindowViewManager *windowViewManager;
+	WindowViewManager *windowViewManager;
     
-    IBOutlet NSPanel *mainWindow;
-    IBOutlet NSView *mainView;
-    IBOutlet NSView *mainTransitionView; IBOutlet FlipTransitionController *mainTransitionController;
-    IBOutlet NSView *currentView;
-    IBOutlet NSView *currentHeaderView;
-    IBOutlet ScrollingTextView *currentNameView, *currentArtistView;
-    IBOutlet NSImageView *currentArtworkView;
-    IBOutlet NSView *nextView;
-    IBOutlet NSView *nextHeaderView;
-    IBOutlet ScrollingTextView *nextNameView, *nextArtistView;
-    IBOutlet NSImageView *nextArtworkView;
+	IBOutlet NSPanel *mainWindow;
+	IBOutlet NSView *mainView;
+	IBOutlet NSView *mainTransitionView; IBOutlet FlipTransitionController *mainTransitionController;
+	IBOutlet NSView *currentView;
+	IBOutlet NSView *currentHeaderView;
+	IBOutlet ScrollingTextView *currentNameView, *currentArtistView;
+	IBOutlet NSImageView *currentArtworkView;
+	IBOutlet NSView *nextView;
+	IBOutlet NSView *nextHeaderView;
+	IBOutlet ScrollingTextView *nextNameView, *nextArtistView;
+	IBOutlet NSImageView *nextArtworkView;
     
-    IBOutlet AttachedPopupWindow *queueWindow;
-    IBOutlet NSView *queueParentView;
-    IBOutlet NSView *queueView;
-    IBOutlet NSTableView *queueTableView;
-    IBOutlet NSView *searchView;  
-    IBOutlet NSTableView *searchTableView;
+	IBOutlet AttachedPopupWindow *queueWindow;
+	IBOutlet NSView *queueParentView;
+	IBOutlet NSView *queueView;
+	IBOutlet NSTableView *queueTableView;
+	IBOutlet NSView *searchView;
+	IBOutlet NSTableView *searchTableView;
     
-    IBOutlet AttachedPopupWindow *controlsWindow;
-    IBOutlet NSView *controlsParentView;
-    IBOutlet NSView *controlsView;
-    IBOutlet NSButton *star1, *star2, *star3, *star4, *star5;
-    IBOutlet NSButton *playPauseButton, *shuffleButton, *repeatButton;
-    IBOutlet NSSlider *volumeSlider;
-    IBOutlet NSSlider *songTimeline;
-    IBOutlet NSView *socialView;
-    IBOutlet NSTabView *socialTabView;
-    IBOutlet NSTextField *twitterUsernameField, *twitterPasswordField;
-    IBOutlet NSButton *twitterLoginButton, *twitterActivateButton;
-    IBOutlet NSTextField *lastFmUsernameField, *lastFmPasswordField;
-    IBOutlet NSButton *lastFmLoginButton, *lastFmActivateButton;
-    IBOutlet NSImageView *facebookPictureView;
-    IBOutlet NSButton *facebookLoginButton, *facebookActivateButton;
-    IBOutlet NSTextField *facebookUsernameLabel;
+	IBOutlet AttachedPopupWindow *controlsWindow;
+	IBOutlet NSView *controlsParentView;
+	IBOutlet NSView *controlsView;
+	IBOutlet NSButton *star1, *star2, *star3, *star4, *star5;
+	IBOutlet NSButton *playPauseButton, *shuffleButton, *repeatButton;
+	IBOutlet NSSlider *volumeSlider;
+	IBOutlet NSSlider *songTimeline;
+	IBOutlet NSView *socialView;
+	IBOutlet NSTabView *socialTabView;
+	IBOutlet NSTextField *twitterUsernameField, *twitterPasswordField;
+	IBOutlet NSButton *twitterLoginButton, *twitterActivateButton;
+	IBOutlet NSTextField *lastFmUsernameField, *lastFmPasswordField;
+	IBOutlet NSButton *lastFmLoginButton, *lastFmActivateButton;
+	IBOutlet NSImageView *facebookPictureView;
+	IBOutlet NSButton *facebookLoginButton, *facebookActivateButton;
+	IBOutlet NSTextField *facebookUsernameLabel;
     
-    IBOutlet NSButton *leftAnchorButton;
-    BOOL showsReflection;
-    int childWindowShift;
+	IBOutlet NSButton *leftAnchorButton;
+	BOOL showsReflection;
+	int childWindowShift;
     
-    IBOutlet NSPanel *songsAddedPopupWindow, *songInfoPostedPopupWindow, *playlistAddedPopupWindow, *playlistCopiedPopupWindow;
+	IBOutlet NSPanel *songsAddedPopupWindow, *songInfoPostedPopupWindow, *playlistAddedPopupWindow, *playlistCopiedPopupWindow;
     
-    NSStatusItem *statusBarItem;
-    ScrollingTextView *menuBarScrollView;
-    IBOutlet NSMenu *statusBarMenu;
-    IBOutlet NSMenuItem *statusBarModeButton;
-    NSString *displayInStatusBar;  
+	NSStatusItem *statusBarItem;
+	ScrollingTextView *menuBarScrollView;
+	IBOutlet NSMenu *statusBarMenu;
+	IBOutlet NSMenuItem *statusBarModeButton;
+	NSString *displayInStatusBar;
 }
 
 @property BOOL twitterLoggedIn;
@@ -96,7 +96,8 @@
 - (void)awakeFromNib;
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification;
 
-OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData);
+OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler, EventRef theEvent, void *userData);
+
 - (void)setupStatsUpdateTimer;
 - (void)updateStats;
 - (void)updateNextSongInfo;
@@ -145,8 +146,8 @@ OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void
 - (IBAction)setPlayerPosition:(id)outlet;
 - (IBAction)setSongRating:(id)outlet;
 
-- (NSString *)getTinyUrlForName: (NSString *)trackname andArtist: (NSString *)trackartist;
-- (NSString *)getItunesUrlForName: (NSString *)trackname andArtist: (NSString *)trackartist;
+- (NSString *)getTinyUrlForName:(NSString *)trackname andArtist:(NSString *)trackartist;
+- (NSString *)getItunesUrlForName:(NSString *)trackname andArtist:(NSString *)trackartist;
 
 - (IBAction)bringToSignIn:(id)outlet;
 - (IBAction)showLastFmView:(id)outlet;
@@ -156,9 +157,9 @@ OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void
 - (IBAction)showFacebookView:(id)outlet;
 - (IBAction)facebookSignIn:(id)outlet;
 - (IBAction)facebookSignOut:(id)outlet;
-- (void)tokenResult:(NSDictionary*)result;
+- (void)tokenResult:(NSDictionary *)result;
 - (IBAction)postToFacebook:(id)outlet;
-- (void)requestResult:(NSDictionary*)result;
+- (void)requestResult:(NSDictionary *)result;
 
 - (IBAction)showTwitterView:(id)outlet;
 - (IBAction)twitterSignIn:(id)outlet;
@@ -167,11 +168,11 @@ OSStatus MyHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void
 - (void)twitterEngineReceivedAccessToken:(id)sender;
 - (void)twitterEngineNotReceivedAccessToken;
 
-- (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard*)pboard;
-- (NSDragOperation)tableView:(NSTableView*)tv validateDrop:(id<NSDraggingInfo>)info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)op;
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id<NSDraggingInfo>)info row:(int)to dropOperation:(NSTableViewDropOperation)operation;
+- (BOOL)tableView:(NSTableView *)tv writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard;
+- (NSDragOperation)tableView:(NSTableView *)tv validateDrop:(id <NSDraggingInfo> )info proposedRow:(int)row proposedDropOperation:(NSTableViewDropOperation)op;
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo> )info row:(int)to dropOperation:(NSTableViewDropOperation)operation;
 - (void)applicationDidBecomeActive:(NSNotification *)aNotification;
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag;
-- (void)mouseEntered:(NSEvent *) theEvent;
-- (void)mouseExited:(NSEvent *) theEvent;
+- (void)mouseEntered:(NSEvent *)theEvent;
+- (void)mouseExited:(NSEvent *)theEvent;
 @end

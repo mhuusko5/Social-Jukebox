@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import <Cocoa/Cocoa.h>
@@ -37,15 +37,14 @@
 #import "BGHUDGeometry.h"
 
 @interface BGHUDSliderCell : NSSliderCell {
-
 	NSString *themeKey;
 }
 
 @property (retain) NSString *themeKey;
 
--(void)drawHorizontalBarInFrame:(NSRect)frame;
--(void)drawVerticalBarInFrame:(NSRect)frame;
--(void)drawHorizontalKnobInFrame:(NSRect)frame;
--(void)drawVerticalKnobInFrame:(NSRect)frame;
+- (void)drawHorizontalBarInFrame:(NSRect)frame;
+- (void)drawVerticalBarInFrame:(NSRect)frame;
+- (void)drawHorizontalKnobInFrame:(NSRect)frame;
+- (void)drawVerticalKnobInFrame:(NSRect)frame;
 
 @end

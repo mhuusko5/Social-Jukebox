@@ -4,10 +4,8 @@
 @class OAConsumer;
 
 @interface xAuthTwitterEngine : MGTwitterEngine {
-	
-	OAConsumer	*consumerObject;
-	OAToken		*accessToken;
-	
+	OAConsumer *consumerObject;
+	OAToken *accessToken;
 }
 
 + (xAuthTwitterEngine *)oAuthTwitterEngineWithDelegate:(NSObject *)theDelegate;
@@ -16,13 +14,13 @@
 - (void)requestAccessToken;
 - (void)clearAccessToken;
 
-@property (retain)	OAConsumer	*consumer;
-@property (retain)	OAToken		*accessToken;
+@property (retain)  OAConsumer *consumer;
+@property (retain)  OAToken *accessToken;
 
 @end
 
 
-@protocol YHOAuthTwitterEngineDelegate 
+@protocol YHOAuthTwitterEngineDelegate
 
 - (void)twitterEngineReceivedAccessToken:(id)sender;
 

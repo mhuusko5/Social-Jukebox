@@ -3,7 +3,6 @@
 
 @interface HUDPopupView : NSView {
 @private
-    
 }
 
 @end

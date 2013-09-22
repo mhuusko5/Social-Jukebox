@@ -30,14 +30,12 @@
 
 @implementation OAPlaintextSignatureProvider
 
-- (NSString *)name 
-{
-    return @"PLAINTEXT";
+- (NSString *)name {
+	return @"PLAINTEXT";
 }
 
-- (NSString *)signClearText:(NSString *)text withSecret:(NSString *)secret 
-{
-    return secret;
+- (NSString *)signClearText:(NSString *)text withSecret:(NSString *)secret {
+	return secret;
 }
 
 @end

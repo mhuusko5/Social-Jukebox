@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 
@@ -41,18 +41,17 @@
 #import "BGHUDGeometry.h"
 
 @interface BGHUDScroller : NSScroller {
-	
 	NSString *arrowPosition;
 	NSString *themeKey;
 }
 
-@property (copy,getter=themeKey) NSString *themeKey;
+@property (copy, getter = themeKey) NSString *themeKey;
 
 - (void)drawDecrementArrow:(BOOL)highlighted;
 - (void)drawIncrementArrow:(BOOL)highlighted;
 
--(NSString *)themeKey;
+- (NSString *)themeKey;
 
--(BOOL)isHoriz;
+- (BOOL)isHoriz;
 
 @end

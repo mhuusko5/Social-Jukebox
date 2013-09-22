@@ -8,7 +8,7 @@
 
 @interface NSTokenAttachment : NSTextAttachment
 {
-    id _delegate;
+	id _delegate;
 }
 
 - (id)initWithDelegate:(id)fp8;
@@ -19,4 +19,3 @@
 - (void)setDelegate:(id)fp8;
 
 @end
-

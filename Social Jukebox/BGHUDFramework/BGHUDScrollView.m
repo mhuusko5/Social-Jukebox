@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import "BGHUDScrollView.h"
@@ -39,72 +39,62 @@
 
 @synthesize themeKey;
 
--(id)init {
-	
+- (id)init {
 	self = [super init];
-	
-	if(self) {
-		
-		[self setThemeKey: @"gradientTheme"];
-		
-		[super setVerticalScroller: [[[BGHUDScroller alloc] init] autorelease]];
-		[super setHorizontalScroller: [[[BGHUDScroller alloc] init] autorelease]];
+    
+	if (self) {
+		[self setThemeKey:@"gradientTheme"];
+        
+		[super setVerticalScroller:[[[BGHUDScroller alloc] init] autorelease]];
+		[super setHorizontalScroller:[[[BGHUDScroller alloc] init] autorelease]];
 	}
-	
+    
 	return self;
 }
 
--(id)initWithFrame:(NSRect)frame {
-	
-	self = [super initWithFrame: frame];
-	
-	if(self) {
-		
-		[self setThemeKey: @"gradientTheme"];
-		
-		[super setVerticalScroller: [[[BGHUDScroller alloc] init] autorelease]];
-		[super setHorizontalScroller: [[[BGHUDScroller alloc] init] autorelease]];
+- (id)initWithFrame:(NSRect)frame {
+	self = [super initWithFrame:frame];
+    
+	if (self) {
+		[self setThemeKey:@"gradientTheme"];
+        
+		[super setVerticalScroller:[[[BGHUDScroller alloc] init] autorelease]];
+		[super setHorizontalScroller:[[[BGHUDScroller alloc] init] autorelease]];
 	}
-	
+    
 	return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-	
-	self = [super initWithCoder: aDecoder];
-	
-	if(self) {
-		
-		if([aDecoder containsValueForKey: @"themeKey"]) {
-			
-			[self setThemeKey: [aDecoder decodeObjectForKey: @"themeKey"]];
-		} else {
-			[self setThemeKey: @"gradientTheme"];
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super initWithCoder:aDecoder];
+    
+	if (self) {
+		if ([aDecoder containsValueForKey:@"themeKey"]) {
+			[self setThemeKey:[aDecoder decodeObjectForKey:@"themeKey"]];
 		}
-		
-		if(![[super verticalScroller] isKindOfClass: [BGHUDScroller class]]) {
-			
-			[super setVerticalScroller: [[[BGHUDScroller alloc] init] autorelease]];
+		else {
+			[self setThemeKey:@"gradientTheme"];
 		}
-		
-		if(![[super horizontalScroller] isKindOfClass: [BGHUDScroller class]]) {
-			
-			[super setHorizontalScroller: [[[BGHUDScroller alloc] init] autorelease]];
+        
+		if (![[super verticalScroller] isKindOfClass:[BGHUDScroller class]]) {
+			[super setVerticalScroller:[[[BGHUDScroller alloc] init] autorelease]];
+		}
+        
+		if (![[super horizontalScroller] isKindOfClass:[BGHUDScroller class]]) {
+			[super setHorizontalScroller:[[[BGHUDScroller alloc] init] autorelease]];
 		}
 	}
-	
+    
 	return self;
 }
 
--(void)encodeWithCoder: (NSCoder *)coder {
-	
-	[super encodeWithCoder: coder];
-	
-	[coder encodeObject: self.themeKey forKey: @"themeKey"];
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[super encodeWithCoder:coder];
+    
+	[coder encodeObject:self.themeKey forKey:@"themeKey"];
 }
 
--(void)dealloc {
-	
+- (void)dealloc {
 	[themeKey release];
 	[super dealloc];
 }

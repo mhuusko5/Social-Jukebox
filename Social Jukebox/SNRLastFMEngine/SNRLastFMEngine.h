@@ -5,10 +5,10 @@
 //  Copyright 2010 Indragie Karunaratne. All rights reserved.
 //
 /* Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
+ 
+ Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+ Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. */
 
 #import <Foundation/Foundation.h>
 
@@ -28,8 +28,8 @@ typedef enum {
 @private
 	NSString *_username;
 	NSString *_sk;
-    NSString *keyvar;
-    dispatch_queue_t _dispatchQueue;
+	NSString *keyvar;
+	dispatch_queue_t _dispatchQueue;
 }
 /** Username property MUST be set to make authenticated API calls and is used to retrieve the session key from the OS X Keychain */
 @property (nonatomic, retain) NSString *username;
@@ -45,7 +45,7 @@ typedef enum {
  @param user the username
  @returns a new SNRLastFMEngine object
  */
-- (id)initWithUsername:(NSString*)user;
+- (id)initWithUsername:(NSString *)user;
 /**
  Initializes a new autoreleased SNRLastFMEngine object
  @returns a new SNRLastFMEngine object
@@ -56,7 +56,7 @@ typedef enum {
  @param user the username
  @returns a new SNRLastFMEngine object
  */
-+ (id)lastFMEngineWithUsername:(NSString*)user;
++ (id)lastFMEngineWithUsername:(NSString *)user;
 
 #pragma mark -
 #pragma mark Basic
@@ -69,7 +69,7 @@ typedef enum {
  @param http the HTTP method to use (SNRHTTPMethodGET or SNRHTTPMethodPOST)
  @param handler a completion handler block
  */
-- (void)callMethod:(NSString*)method withParameters:(NSDictionary*)params requireAuth:(BOOL)auth HTTPMethod:(SNRHTTPMethod)http completionBlock:(void (^)(NSDictionary *response, NSError *error))handler;
+- (void)callMethod:(NSString *)method withParameters:(NSDictionary *)params requireAuth:(BOOL)auth HTTPMethod:(SNRHTTPMethod)http completionBlock:(void (^)(NSDictionary *response, NSError *error))handler;
 
 #pragma mark -
 #pragma mark Authentication
@@ -79,7 +79,7 @@ typedef enum {
  @param token an authentication token
  @param handler a completion handler block
  */
-- (void)retrieveAndStoreSessionKeyWithToken:(NSString*)token completionHandler:(void (^)(NSString *user, NSError *error))handler;
+- (void)retrieveAndStoreSessionKeyWithToken:(NSString *)token completionHandler:(void (^)(NSString *user, NSError *error))handler;
 
 #pragma mark -
 #pragma mark Web Authentication
@@ -89,7 +89,7 @@ typedef enum {
  @param callback Callback URL to open when the user has authenticated with Last.fm
  See here for more info on custom auth handlers <http://www.last.fm/api/webauth#create_an_authentication_handler>
  */
-+ (NSURL*)webAuthenticationURLWithCallbackURL:(NSURL*)callback;
++ (NSURL *)webAuthenticationURLWithCallbackURL:(NSURL *)callback;
 
 #pragma mark -
 #pragma mark Desktop Authentication
@@ -105,7 +105,7 @@ typedef enum {
  @param token an authentication token obtained from the -retrieveAuthenticationToken: method
  @returns an authenticantion URL
  */
-+ (NSURL*)authenticationURLWithToken:(NSString*)token;
++ (NSURL *)authenticationURLWithToken:(NSString *)token;
 
 #pragma mark -
 #pragma mark Mobile Authentication
@@ -116,7 +116,7 @@ typedef enum {
  @param password the user's password
  @param handler a completion handler block
  */
-- (void)retrieveAndStoreSessionKeyWithUsername:(NSString*)username password:(NSString*)password completionHandler:(void (^)(NSError *error))handler;
+- (void)retrieveAndStoreSessionKeyWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(NSError *error))handler;
 
 #pragma mark -
 #pragma mark Keychain Access
@@ -126,13 +126,13 @@ typedef enum {
  @param user the username
  @returns whether the user has stored credentials or not
  */
-+ (BOOL)userHasStoredCredentials:(NSString*)user;
++ (BOOL)userHasStoredCredentials:(NSString *)user;
 
-/** 
+/**
  Deletes the credentials for the specified user from the keychain
  @param user the username
  */
-+ (void)removeCredentialsForUser:(NSString*)user;
++ (void)removeCredentialsForUser:(NSString *)user;
 
 /**
  Checks whether the current instance of SNRLastFMEngine is authenticated
@@ -165,6 +165,6 @@ typedef enum {
  @param timestamp the timestamp at which the track was played --> use [NSNumber numberWithInteger:[[NSDate date] timeIntervalSince1970]] because the timestamp *must* be an integer
  @param handler a completion handler block
  */
-- (void)scrobbleTrackWithName:(NSString*)name album:(NSString*)album artist:(NSString*)artist albumArtist:(NSString*)albumArtist trackNumber:(NSInteger)trackNumber duration:(NSInteger)duration timestamp:(NSInteger)timestamp completionHandler:(void (^)(NSDictionary *scrobbles, NSError *error))handler;
+- (void)scrobbleTrackWithName:(NSString *)name album:(NSString *)album artist:(NSString *)artist albumArtist:(NSString *)albumArtist trackNumber:(NSInteger)trackNumber duration:(NSInteger)duration timestamp:(NSInteger)timestamp completionHandler:(void (^)(NSDictionary *scrobbles, NSError *error))handler;
 
 @end

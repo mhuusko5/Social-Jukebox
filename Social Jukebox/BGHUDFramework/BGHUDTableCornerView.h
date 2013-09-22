@@ -10,7 +10,6 @@
 #import "BGThemeManager.h"
 
 @interface BGHUDTableCornerView : NSView {
-
 	NSString *themeKey;
 }
 

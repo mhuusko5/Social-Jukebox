@@ -29,7 +29,7 @@
 //	BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
 //	OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
 //	WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+//	ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 //	POSSIBILITY OF SUCH DAMAGE.
 
 #import "BGHUDLabel.h"
@@ -39,65 +39,56 @@
 
 @synthesize themeKey;
 
--(id)init {
-	
+- (id)init {
 	self = [super init];
-	
-	if(self) {
-		
+    
+	if (self) {
 		self.themeKey = @"gradientTheme";
-		[self setTextColor: [[[BGThemeManager keyedManager] themeForKey: self.themeKey] textColor]];
-		[self setBordered: NO];
-		[self setBezeled: NO];
-		[self setEditable: NO];
-		[self setSelectable: NO];
+		[self setTextColor:[[[BGThemeManager keyedManager] themeForKey:self.themeKey] textColor]];
+		[self setBordered:NO];
+		[self setBezeled:NO];
+		[self setEditable:NO];
+		[self setSelectable:NO];
 	}
-	
+    
 	return self;
 }
 
--(id)initWithCoder:(NSCoder *)aDecoder {
-	
-	self = [super initWithCoder: aDecoder];
-	
-	if(self) {
-		
-		if([aDecoder containsValueForKey: @"themeKey"]) {
-			
-			self.themeKey = [aDecoder decodeObjectForKey: @"themeKey"];
-		} else {
-			
+- (id)initWithCoder:(NSCoder *)aDecoder {
+	self = [super initWithCoder:aDecoder];
+    
+	if (self) {
+		if ([aDecoder containsValueForKey:@"themeKey"]) {
+			self.themeKey = [aDecoder decodeObjectForKey:@"themeKey"];
+		}
+		else {
 			self.themeKey = @"gradientTheme";
 		}
-		
-		[self setTextColor: [[[BGThemeManager keyedManager] themeForKey: self.themeKey] textColor]];
+        
+		[self setTextColor:[[[BGThemeManager keyedManager] themeForKey:self.themeKey] textColor]];
 	}
-	
+    
 	return self;
 }
 
--(void)encodeWithCoder: (NSCoder *)coder {
-	
-	[super encodeWithCoder: coder];
-	
-	[coder encodeObject: self.themeKey forKey: @"themeKey"];
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[super encodeWithCoder:coder];
+    
+	[coder encodeObject:self.themeKey forKey:@"themeKey"];
 }
 
--(void)drawRect:(NSRect) rect {
-	
-	if([self isEnabled]) {
-		
-		[self setTextColor: [[[BGThemeManager keyedManager] themeForKey: self.themeKey] textColor]];
-	} else {
-		
-		[self setTextColor: [[[BGThemeManager keyedManager] themeForKey: self.themeKey] disabledTextColor]];
+- (void)drawRect:(NSRect)rect {
+	if ([self isEnabled]) {
+		[self setTextColor:[[[BGThemeManager keyedManager] themeForKey:self.themeKey] textColor]];
 	}
-	
-	[super drawRect: rect];
+	else {
+		[self setTextColor:[[[BGThemeManager keyedManager] themeForKey:self.themeKey] disabledTextColor]];
+	}
+    
+	[super drawRect:rect];
 }
 
--(void)dealloc {
-	
+- (void)dealloc {
 	[themeKey release];
 	[super dealloc];
 }

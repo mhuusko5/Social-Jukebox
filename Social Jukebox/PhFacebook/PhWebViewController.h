@@ -15,12 +15,12 @@
 
 @interface PhWebViewController : NSObject <NSWindowDelegate>
 {
-    IBOutlet NSWindow *window;
-    IBOutlet WebView *webView;
-    IBOutlet NSButton *cancelButton;
-    WindowViewManager *windowViewManager;
-    PhFacebook *parent;
-    NSString *permissions;
+	IBOutlet NSWindow *window;
+	IBOutlet WebView *webView;
+	IBOutlet NSButton *cancelButton;
+	WindowViewManager *windowViewManager;
+	PhFacebook *parent;
+	NSString *permissions;
 }
 
 @property (assign) IBOutlet NSWindow *window;
@@ -29,6 +29,6 @@
 @property (assign) PhFacebook *parent;
 @property (nonatomic, retain) NSString *permissions;
 
-- (IBAction) cancel: (id) sender;
+- (IBAction)cancel:(id)sender;
 
 @end

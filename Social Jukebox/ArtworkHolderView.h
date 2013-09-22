@@ -3,7 +3,6 @@
 
 @interface ArtworkHolderView : NSImageView {
 @private
-    
 }
 - (void)drawRect:(NSRect)rect;
 
